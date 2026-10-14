@@ -7,7 +7,7 @@ A responsive, single-page portfolio website with premium black-and-white styling
 - `assets/` — the three photography collages you uploaded
 
 ## Before publishing
-1. In `index.html`, replace `YOUR NAME` with your display name.
+1. In `index.html`, replace `Mohamed Shajith` with your display name.
 2. Replace `your.email@example.com` with your real email address in both the email link and any visible contact text if you add it.
 3. Replace the three sample poster concepts with your real poster projects before applying for jobs. The current posters are clearly marked as placeholder concepts.
 4. Check that you have permission to show every photograph publicly.
