@@ -101,6 +101,184 @@ header{animation:fade-down .7s ease-out both}
   .profile-hero{right:-30px;top:300px;width:61%;height:600px}
 }
 
+
+
+/* Alignment correction: keep the approved mobile composition balanced */
+.hero-designed{width:100%;min-width:0;}
+.hero-designed .hero-copy{min-width:0;}
+.hero-designed .creative-name{overflow:visible;}
+.profile-hero img{display:block;}
+@media (min-width:761px){
+  .hero-designed{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:28px;}
+  .profile-hero{min-width:0;min-height:520px;}
+  .profile-hero img{width:112%;max-width:none;max-height:680px;}
+}
+@media (max-width:760px){
+  .wrap#home{width:100%;}
+  .hero-designed{display:block;min-height:0;height:auto;padding:38px 26px 44px!important;overflow:hidden;}
+  .hero-designed .hero-copy{width:100%;}
+  .hero-designed .eyebrow{max-width:100%;}
+  .hero-designed .creative-name{font-size:clamp(54px,10.2vw,74px)!important;line-height:.91!important;letter-spacing:-.07em!important;}
+  .hero-designed .hero-tagline{max-width:54%;margin-top:48px;font-size:clamp(19px,3.6vw,27px);line-height:1.16;}
+  .hero-designed .intro{max-width:51%;margin:42px 0 38px;font-size:clamp(14px,2.5vw,18px);line-height:1.7;}
+  .hero-designed .button{min-width:0;max-width:100%;padding:18px 20px;font-size:12px;white-space:nowrap;}
+  .profile-hero{right:-24px;top:310px;width:59%;height:640px;min-height:0!important;max-height:none!important;}
+  .profile-hero img{width:125%!important;max-width:none!important;max-height:640px!important;object-fit:contain!important;object-position:right bottom!important;margin:0 -5px 0 0!important;}
+  #work{padding-top:58px;}
+  #work .section-head{display:flex;flex-direction:column;align-items:flex-start;gap:18px;}
+  #work .section-note{max-width:100%;font-size:15px;line-height:1.7;}
+  .gallery-filters{gap:8px;}
+  .gallery-filter{padding:10px 12px;}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:160px;}
+  .work-card.wide{grid-column:span 2;}
+  .design-grid-approved{grid-template-columns:1fr;}
+  .about-grid,.contact{grid-template-columns:1fr;}
+}
+@media (max-width:390px){
+  .hero-designed{padding-left:20px!important;padding-right:20px!important;}
+  .hero-designed .creative-name{font-size:clamp(50px,12.5vw,58px)!important;}
+  .hero-designed .hero-tagline{max-width:57%;font-size:18px;margin-top:44px;}
+  .hero-designed .intro{max-width:53%;font-size:14px;margin-top:38px;margin-bottom:34px;}
+  .profile-hero{right:-28px;top:305px;width:62%;height:600px;}
+  .hero-designed .button{padding:16px 14px;font-size:11px;}
+}
+
+
+
+/* Corrected mobile hero alignment: preserve the approved layout and move only the portrait */
+@media (max-width: 760px) {
+  .hero-designed {
+    position: relative !important;
+    display: block !important;
+    min-height: 955px !important;
+    height: auto !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+  }
+  .hero-designed .hero-copy {
+    position: relative !important;
+    z-index: 3 !important;
+    width: 100% !important;
+  }
+  .hero-designed .hero-tagline {
+    max-width: 55% !important;
+  }
+  .hero-designed .intro {
+    max-width: 52% !important;
+  }
+  .hero-designed .button {
+    position: relative !important;
+    z-index: 4 !important;
+  }
+  .hero-designed .profile-hero {
+    position: absolute !important;
+    z-index: 1 !important;
+    top: -10px !important;
+    right: -22px !important;
+    width: 57% !important;
+    height: 665px !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: flex-end !important;
+    overflow: visible !important;
+    pointer-events: none !important;
+  }
+  .hero-designed .profile-hero::before {
+    top: 190px !important;
+    right: -2px !important;
+    width: 390px !important;
+    height: 390px !important;
+    max-width: 95vw !important;
+    max-height: 95vw !important;
+  }
+  .hero-designed .profile-hero img {
+    position: relative !important;
+    z-index: 1 !important;
+    display: block !important;
+    width: 125% !important;
+    height: auto !important;
+    max-width: none !important;
+    max-height: 650px !important;
+    min-height: 0 !important;
+    object-fit: contain !important;
+    object-position: right bottom !important;
+    filter: grayscale(100%) !important;
+    mix-blend-mode: normal !important;
+    background: transparent !important;
+    margin: 0 -6px 0 0 !important;
+  }
+  #work { padding-top: 58px !important; }
+}
+@media (max-width: 390px) {
+  .hero-designed { min-height: 920px !important; }
+  .hero-designed .profile-hero {
+    top: -10px !important;
+    right: -28px !important;
+    width: 62% !important;
+    height: 600px !important;
+  }
+  .hero-designed .hero-tagline { max-width: 57% !important; }
+  .hero-designed .intro { max-width: 53% !important; }
+}
+
+
+
+/* Final requested mobile correction: move portrait slightly right and remove excess empty hero space */
+@media (max-width: 760px) {
+  .hero-designed {
+    min-height: 720px !important;
+    height: auto !important;
+    padding-bottom: 28px !important;
+  }
+  .hero-designed .profile-hero {
+    right: -8px !important;
+  }
+}
+@media (max-width: 390px) {
+  .hero-designed {
+    min-height: 720px !important;
+  }
+  .hero-designed .profile-hero {
+    right: -8px !important;
+  }
+}
+/* Mobile portrait fix: enlarge and extend the portrait down to the hero divider,
+   while keeping the text, red graphics, button, and next section unchanged. */
+@media(max-width:760px){
+  .hero-designed .profile-hero{
+    right:-30px!important;
+    height:850px!important;
+    min-height:850px!important;
+    align-self:end!important;
+    overflow:visible!important;
+  }
+  .hero-designed .profile-hero img{
+    width:150%!important;
+    max-width:none!important;
+    height:100%!important;
+    max-height:850px!important;
+    object-fit:contain!important;
+    object-position:right bottom!important;
+    margin:0 -18px 0 0!important;
+  }
+}
+@media(max-width:390px){
+  .hero-designed .profile-hero{
+    right:-34px!important;
+    height:850px!important;
+    min-height:850px!important;
+  }
+  .hero-designed .profile-hero img{
+    width:150%!important;
+    height:100%!important;
+    max-height:850px!important;
+    margin-right:-18px!important;
+  }
+}
 </style>
 </head>
 <body>
