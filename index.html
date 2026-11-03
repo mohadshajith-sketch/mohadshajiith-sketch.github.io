@@ -329,6 +329,23 @@ header{animation:fade-down .7s ease-out both}
     z-index: 2;
   }
 }
+
+/* Four completed graphic-design poster projects */
+.poster-projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:28px}
+.poster-project{border:1px solid var(--line);background:#101010;overflow:hidden;transition:transform .3s ease,border-color .3s ease}
+.poster-project:hover{transform:translateY(-5px);border-color:var(--red)}
+.poster-project-image{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;background:#171717;cursor:zoom-in}
+.poster-project-info{padding:18px 18px 20px}
+.poster-project-meta{display:flex;justify-content:space-between;gap:10px;color:#ff7184;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.poster-project h3{margin:9px 0 6px;font-size:19px;line-height:1.2;text-transform:uppercase}
+.poster-project p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}
+.poster-project .asset-note{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:10px;color:#938c8c}
+.poster-lightbox{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;padding:24px}
+.poster-lightbox.open{display:flex}
+.poster-lightbox img{max-width:100%;max-height:88vh;object-fit:contain}
+.poster-lightbox button{position:absolute;right:18px;top:18px;width:46px;height:46px;border:1px solid #555;background:#111;color:#fff;font-size:28px;cursor:pointer}
+@media(max-width:760px){.poster-projects{grid-template-columns:1fr;gap:16px}.poster-project-info{padding:15px}}
+
 </style>
 </head>
 <body>
@@ -347,12 +364,83 @@ header{animation:fade-down .7s ease-out both}
 <article class="work-card wide reveal" data-category="couple" tabindex="0" role="button" aria-label="View Couple Portraits"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Sample couple wedding portrait placeholder" loading="lazy"><div class="work-info"><h3>Couple Portraits</h3></div></article>
 <article class="work-card reveal" data-category="groom" tabindex="0" role="button" aria-label="View Editorial Groom Portrait"><img src="outdoor-editorial.jpg" alt="Editorial outdoor portrait that can represent groom style" loading="lazy"><div class="work-info"><h3>Editorial Portrait</h3></div></article>
 </div></div></section>
-<div class="lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Expanded photograph"><button class="lightbox-close" id="galleryClose" type="button" aria-label="Close image">×</button><img id="galleryLargeImage" src="" alt=""></div>
-<section id="design" class="reveal-section"><div class="wrap"><div class="section-head"><div><h2>Graphic Design</h2></div><p class="section-note">A focused showcase of poster design and brand identity, presented separately from wedding photography.</p></div><div class="design-grid design-grid-approved">
-<article class="design-card poster-red reveal"><div><strong>Poster<br>Design<span class="design-subtitle">Selected posters · Campaigns · Editorial</span></strong></div></article>
-<article class="design-card poster-brand reveal" data-delay="1"><div><strong>Brand<br>Identity<span class="design-subtitle">Logos · Color systems · Applications</span></strong></div></article>
-
+<section id="bridal-gallery" class="reveal-section"><div class="wrap"><div class="section-head"><div><div class="kicker">01.1 / Bridal collection</div><h2>Bridal Portraits</h2></div><p class="section-note">A curated collection of bridal portraits, quiet moments, traditional details, and timeless expressions.</p></div>
+<div class="gallery bridal-gallery">
+<article class="work-card tall reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 1"><img src="assets/bridal-01.jpeg" alt="Bridal portrait 1" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 01</span><h3>Bridal portrait 1</h3></div></article>
+<article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 2"><img src="assets/bridal-02.jpeg" alt="Bridal portrait 2" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 02</span><h3>Bridal portrait 2</h3></div></article>
+<article class="work-card tall reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 3"><img src="assets/bridal-03.jpeg" alt="Bridal portrait 3" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 03</span><h3>Bridal portrait 3</h3></div></article>
+<article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 4"><img src="assets/bridal-04.jpeg" alt="Bridal portrait 4" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 04</span><h3>Bridal portrait 4</h3></div></article>
+<article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 5"><img src="assets/bridal-05.jpeg" alt="Bridal portrait 5" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 05</span><h3>Bridal portrait 5</h3></div></article>
+<article class="work-card tall reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 6"><img src="assets/bridal-06.jpeg" alt="Bridal portrait 6" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 06</span><h3>Bridal portrait 6</h3></div></article>
+<article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 7"><img src="assets/bridal-07.jpeg" alt="Bridal portrait 7" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 07</span><h3>Bridal portrait 7</h3></div></article>
+<article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 8"><img src="assets/bridal-08.jpeg" alt="Bridal portrait 8" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 08</span><h3>Bridal portrait 8</h3></div></article>
+<article class="work-card tall reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 9"><img src="assets/bridal-09.jpeg" alt="Bridal portrait 9" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 09</span><h3>Bridal portrait 9</h3></div></article>
+<article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 10"><img src="assets/bridal-10.jpeg" alt="Bridal portrait 10" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 10</span><h3>Bridal portrait 10</h3></div></article>
+<article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 11"><img src="assets/bridal-11.jpeg" alt="Bridal portrait 11" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 11</span><h3>Bridal portrait 11</h3></div></article>
+<article class="work-card tall reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 12"><img src="assets/bridal-12.jpeg" alt="Bridal portrait 12" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 12</span><h3>Bridal portrait 12</h3></div></article>
+<article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 13"><img src="assets/bridal-13.jpeg" alt="Bridal portrait 13" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 13</span><h3>Bridal portrait 13</h3></div></article>
+<article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 14"><img src="assets/bridal-14.jpeg" alt="Bridal portrait 14" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 14</span><h3>Bridal portrait 14</h3></div></article>
+<article class="work-card tall reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 15"><img src="assets/bridal-15.jpeg" alt="Bridal portrait 15" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 15</span><h3>Bridal portrait 15</h3></div></article>
+<article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 16"><img src="assets/bridal-16.jpeg" alt="Bridal portrait 16" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 16</span><h3>Bridal portrait 16</h3></div></article>
+<article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 17"><img src="assets/bridal-17.jpeg" alt="Bridal portrait 17" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 17</span><h3>Bridal portrait 17</h3></div></article>
+<article class="work-card tall reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 18"><img src="assets/bridal-18.jpeg" alt="Bridal portrait 18" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 18</span><h3>Bridal portrait 18</h3></div></article>
+<article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 19"><img src="assets/bridal-19.jpeg" alt="Bridal portrait 19" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 19</span><h3>Bridal portrait 19</h3></div></article>
+<article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 20"><img src="assets/bridal-20.jpeg" alt="Bridal portrait 20" loading="lazy"><div class="work-info"><span class="number">BRIDAL / 20</span><h3>Bridal portrait 20</h3></div></article>
 </div></div></section>
+<div class="lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Expanded photograph"><button class="lightbox-close" id="galleryClose" type="button" aria-label="Close image">×</button><img id="galleryLargeImage" src="" alt=""></div>
+
+<section id="design" class="reveal-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">02 / Visual communication</div><h2>Graphic Design</h2></div>
+      <p class="section-note">Four self-initiated advertising concepts created in Adobe Photoshop. Select any poster to view it larger.</p>
+    </div>
+    <div class="poster-projects">
+      <article class="poster-project reveal">
+        <img class="poster-project-image" src="assets/project-01-digital-marketing.png" alt="Digital marketing concept poster: Grow Your Brand" loading="lazy">
+        <div class="poster-project-info">
+          <div class="poster-project-meta"><span>Poster Design</span><span>01 / 04</span></div>
+          <h3>Grow Your Brand</h3>
+          <p>Digital marketing campaign concept using bold typography, a split layout and a growth-focused visual.</p>
+          <div class="asset-note">Self-initiated concept · Sourced rocket illustration · Adobe Photoshop</div>
+        </div>
+      </article>
+      <article class="poster-project reveal" data-delay="1">
+        <img class="poster-project-image" src="assets/project-02-luxury-fashion.png" alt="Luxury fashion concept poster: Define Your Style" loading="lazy">
+        <div class="poster-project-info">
+          <div class="poster-project-meta"><span>Fashion Advertising</span><span>02 / 04</span></div>
+          <h3>Define Your Style</h3>
+          <p>Luxury fashion campaign concept built around oversized editorial typography and a strong central portrait.</p>
+          <div class="asset-note">Self-initiated concept · Sourced model PNG · Adobe Photoshop</div>
+        </div>
+      </article>
+      <article class="poster-project reveal">
+        <img class="poster-project-image" src="assets/project-03-technology.jpg" alt="Technology advertising concept poster: Powering the Future" loading="lazy">
+        <div class="poster-project-info">
+          <div class="poster-project-meta"><span>Technology Advertising</span><span>03 / 04</span></div>
+          <h3>Powering the Future</h3>
+          <p>Futuristic technology campaign concept with a warm cinematic palette, VR subject and bold headline hierarchy.</p>
+          <div class="asset-note">Self-initiated concept · Sourced complete photograph · Adobe Photoshop</div>
+        </div>
+      </article>
+      <article class="poster-project reveal" data-delay="1">
+        <img class="poster-project-image" src="assets/project-04-iced-caramel-latte.png" alt="Coffee advertising concept poster: Iced Caramel Latte" loading="lazy">
+        <div class="poster-project-info">
+          <div class="poster-project-meta"><span>Food &amp; Beverage</span><span>04 / 04</span></div>
+          <h3>Iced Caramel Latte</h3>
+          <p>Premium beverage campaign concept combining a caramel colour palette, product-led composition and vertical typography.</p>
+          <div class="asset-note">Self-initiated concept · Sourced product and splash assets · Adobe Photoshop</div>
+        </div>
+      </article>
+    </div>
+    <p class="design-note">These are independent portfolio concepts, not commissioned client campaigns. Any third-party visual assets are identified in each project description.</p>
+  </div>
+</section>
+<div class="poster-lightbox" id="posterLightbox" role="dialog" aria-modal="true" aria-label="Expanded poster preview">
+  <button type="button" id="posterLightboxClose" aria-label="Close poster preview">×</button>
+  <img id="posterLightboxImage" src="" alt="Expanded poster">
+</div>
+
 <section id="about" class="reveal-section"><div class="wrap about-grid"><div><h2>Frames.<br>Forms.<br><span style="color:var(--red)">Feeling.</span></h2></div><div><p>I'm a photographer and graphic designer who enjoys creating expressive portraits and purposeful visual design. My approach is simple: understand the brief, pay attention to the details, and make work that feels considered.</p><div class="skills"><span>Photography</span><span>Portraits</span><span>Wedding</span><span>Graphic Design</span><span>Poster Design</span><span>Photoshop</span><span>Lightroom</span><span>Illustrator</span></div></div></div></section>
 <section id="contact" class="reveal-section"><div class="wrap contact"><div><h2>Let's make something <span style="color:var(--red)">great.</span></h2><p class="intro" style="margin-bottom:0">Available for photography, poster design, and creative projects.</p></div><div class="contact-details"><p>Email: <a href="mailto:mohad.shajith@gmail.com">mohad.shajith@gmail.com</a></p><p>WhatsApp: <a href="https://wa.me/919597119423" target="_blank" rel="noopener noreferrer">+91 95971 19423</a></p><p>Location: Tamil Nadu, India</p><a class="button" href="mailto:mohad.shajith@gmail.com">Email me ↗</a> <a class="button" href="https://wa.me/919597119423" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></div></div></section>
 </main>
@@ -387,6 +475,27 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
   }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
   document.querySelectorAll('.reveal, .reveal-section .section-head, .reveal-section .about-grid, .reveal-section .contact').forEach(el => observer.observe(el));
 }
+
+// Poster previews for the Graphic Design section
+(function(){
+  const modal = document.getElementById('posterLightbox');
+  const large = document.getElementById('posterLightboxImage');
+  const close = document.getElementById('posterLightboxClose');
+  if (!modal || !large || !close) return;
+  document.querySelectorAll('.poster-project-image').forEach(img => {
+    img.addEventListener('click', () => {
+      large.src = img.currentSrc || img.src;
+      large.alt = img.alt;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  function shut(){ modal.classList.remove('open'); large.src=''; document.body.style.overflow=''; }
+  close.addEventListener('click', shut);
+  modal.addEventListener('click', e => { if (e.target === modal) shut(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') shut(); });
+})();
+
 </script>
 </body>
 </html>
