@@ -789,32 +789,10 @@ html, body{
   overflow-anchor:none!important;
 }
 \n
-/* Desktop-only full-width layout. Tablet and mobile retain their existing widths. */
-@media (min-width:1200px){
-  .wrap{
-    width:calc(100% - clamp(96px,10vw,200px))!important;
-    max-width:none!important;
-  }
-  header .wrap,
-  main .wrap,
-  section .wrap,
-  footer .wrap{
-    width:calc(100% - clamp(96px,10vw,200px))!important;
-    max-width:none!important;
-  }
-  .hero-designed{
-    width:100%!important;
-    max-width:none!important;
-    grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)!important;
-    column-gap:clamp(48px,6vw,110px)!important;
-  }
-  .hero-designed .hero-copy{
-    max-width:760px!important;
-  }
-  .hero-designed .profile-hero{
-    width:100%!important;
-    max-width:760px!important;
-    justify-self:end!important;
+/* Desktop-only hero width adjustment; iPad and mobile remain unchanged. */
+@media (min-width: 1201px) {
+  .wrap#home {
+    width: min(1500px, calc(100% - 80px)) !important;
   }
 }
 
