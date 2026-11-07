@@ -886,6 +886,97 @@ html, body{
   }
 }
 
+
+
+/* FINAL desktop gallery layout: orderly rows, no overlapping or cropped photos. */
+@media (min-width: 1201px) {
+  #bridal-gallery .gallery,
+  #groom-gallery .gallery,
+  #couple-gallery .gallery {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    grid-auto-flow: row !important;
+    grid-auto-rows: auto !important;
+    align-items: start !important;
+    gap: 14px !important;
+    overflow: visible !important;
+  }
+
+  #bridal-gallery .gallery .work-card,
+  #groom-gallery .gallery .work-card,
+  #couple-gallery .gallery .work-card,
+  #bridal-gallery .gallery .work-card.tall,
+  #groom-gallery .gallery .work-card.tall,
+  #couple-gallery .gallery .work-card.tall,
+  #bridal-gallery .gallery .work-card.wide,
+  #groom-gallery .gallery .work-card.wide,
+  #couple-gallery .gallery .work-card.wide {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 3 / 4 !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    overflow: hidden !important;
+    align-self: start !important;
+  }
+
+  #bridal-gallery .gallery .work-card img,
+  #groom-gallery .gallery .work-card img,
+  #couple-gallery .gallery .work-card img {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: #080808 !important;
+  }
+
+  #bridal-gallery .gallery .work-card[hidden],
+  #groom-gallery .gallery .work-card[hidden],
+  #couple-gallery .gallery .work-card[hidden] {
+    display: block !important;
+  }
+
+  #bridal-gallery .gallery-more-button,
+  #groom-gallery .gallery-more-button,
+  #couple-gallery .gallery-more-button {
+    display: none !important;
+  }
+
+  #design .poster-projects {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    grid-auto-flow: row !important;
+    gap: 16px !important;
+    align-items: start !important;
+  }
+
+  #design .poster-project {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  #design .poster-project-image {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 5 !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    background: #080808 !important;
+  }
+}
+
 </style>
 </head>
 <body>
