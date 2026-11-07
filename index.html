@@ -574,6 +574,22 @@ header{animation:fade-down .7s ease-out both}
   }
 }
 
+
+/* Match the tight hero-to-Bridal transition on iPad and desktop.
+   Mobile layout is intentionally left unchanged. */
+@media (min-width:761px){
+  .hero-designed{
+    padding-bottom:0!important;
+    align-items:end!important;
+  }
+  .hero-designed .profile-hero{
+    align-self:end!important;
+  }
+  #bridal-gallery{
+    padding-top:28px!important;
+  }
+}
+
 </style>
 </head>
 <body>
