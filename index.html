@@ -778,7 +778,17 @@ header{animation:fade-down .7s ease-out both}
   overflow-anchor:none!important;
 }
 
-</style>
+
+/* Disable automatic scroll anchoring/smooth scrolling during gallery collapse */
+html, body{
+  overflow-anchor:none!important;
+}
+#bridal-gallery,
+#groom-gallery,
+#couple-gallery{
+  overflow-anchor:none!important;
+}
+\n</style>
 </head>
 <body>
 
@@ -963,7 +973,8 @@ document.getElementById('year').textContent=new Date().getFullYear();
 
     const cards=Array.from(gallery.querySelectorAll('.work-card'));
     const isExpanded=button.getAttribute('aria-expanded')==='true';
-    const scrollBefore=window.scrollY;
+    const buttonTopBefore=button.getBoundingClientRect().top;
+    const scrollBefore=window.pageYOffset || document.documentElement.scrollTop || 0;
 
     cards.forEach((card,index)=>{
       if(index>=4) card.hidden=isExpanded;
@@ -972,10 +983,17 @@ document.getElementById('year').textContent=new Date().getFullYear();
     button.setAttribute('aria-expanded',String(!isExpanded));
     button.textContent=isExpanded?'VIEW MORE':'SHOW LESS';
 
-    // Keep the page at the same scroll location after the gallery height changes.
+    // On collapse, compensate for the height removed above the button so the
+    // button stays at exactly the same viewport position (including on iOS Safari).
     if(isExpanded){
       requestAnimationFrame(()=>{
-        window.scrollTo(0,scrollBefore);
+        requestAnimationFrame(()=>{
+          const buttonTopAfter=button.getBoundingClientRect().top;
+          const delta=buttonTopAfter-buttonTopBefore;
+          document.documentElement.style.scrollBehavior='auto';
+          document.body.style.scrollBehavior='auto';
+          window.scrollTo(0,Math.max(0,scrollBefore+delta));
+        });
       });
     }
   },true);
