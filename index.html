@@ -551,8 +551,6 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
   document.addEventListener('keydown', e => { if (e.key === 'Escape') shut(); });
 })();
 
-</script>
-
 // Hide the opening splash after the portfolio has had time to appear.
 (function(){
   const splash = document.getElementById('portfolioSplash');
@@ -564,6 +562,7 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
   if (document.readyState === 'complete') hideSplash();
   else window.addEventListener('load', hideSplash, { once:true });
 })();
+</script>
 
 </body>
 </html>
