@@ -770,7 +770,15 @@ header{animation:fade-down .7s ease-out both}
 .gallery-more-button{
   scroll-margin-top:24px;
 }
-\n</style>
+\n
+/* Keep the viewport stable when View More / Show Less changes gallery height */
+#bridal-gallery,
+#groom-gallery,
+#couple-gallery{
+  overflow-anchor:none!important;
+}
+
+</style>
 </head>
 <body>
 
@@ -919,14 +927,14 @@ document.getElementById('year').textContent=new Date().getFullYear();
 })();
 
 
-// View More controls: expand/collapse the current gallery only.
+// View More / Show Less: intercept at document capture so no parent link or
+// delegated navigation handler can redirect the page when a gallery is collapsed.
 (function(){
   const galleryIds=['bridal-gallery','groom-gallery','couple-gallery'];
 
   galleryIds.forEach(id=>{
     const section=document.getElementById(id);
     if(!section) return;
-
     const gallery=section.querySelector('.gallery');
     const button=section.querySelector('.gallery-more-button');
     if(!gallery||!button) return;
@@ -935,40 +943,42 @@ document.getElementById('year').textContent=new Date().getFullYear();
     cards.forEach((card,index)=>{
       if(index>=4) card.hidden=true;
     });
-
-    if(cards.length<=4){
-      button.hidden=true;
-      return;
-    }
-
-    button.addEventListener('click',function(event){
-      event.preventDefault();
-      event.stopPropagation();
-      event.stopImmediatePropagation();
-
-      const isExpanded=button.getAttribute('aria-expanded')==='true';
-      const currentScrollY=window.scrollY;
-      const buttonTop=button.getBoundingClientRect().top;
-
-      cards.forEach((card,index)=>{
-        if(index>=4) card.hidden=isExpanded;
-      });
-
-      button.setAttribute('aria-expanded',String(!isExpanded));
-      button.textContent=isExpanded?'VIEW MORE':'SHOW LESS';
-
-      // Preserve the user's position when collapsing; do not jump to the next section.
-      if(isExpanded){
-        requestAnimationFrame(()=>{
-          const newButtonTop=button.getBoundingClientRect().top;
-          window.scrollTo({
-            top:Math.max(0,currentScrollY+(newButtonTop-buttonTop)),
-            behavior:'instant'
-          });
-        });
-      }
-    },true);
+    if(cards.length<=4) button.hidden=true;
   });
+
+  document.addEventListener('click',function(event){
+    const button=event.target.closest('.gallery-more-button');
+    if(!button) return;
+
+    // Cancel any anchor/navigation behaviour before it reaches ancestors.
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+
+    const section=button.closest('#bridal-gallery, #groom-gallery, #couple-gallery');
+    if(!section) return;
+
+    const gallery=section.querySelector('.gallery');
+    if(!gallery) return;
+
+    const cards=Array.from(gallery.querySelectorAll('.work-card'));
+    const isExpanded=button.getAttribute('aria-expanded')==='true';
+    const scrollBefore=window.scrollY;
+
+    cards.forEach((card,index)=>{
+      if(index>=4) card.hidden=isExpanded;
+    });
+
+    button.setAttribute('aria-expanded',String(!isExpanded));
+    button.textContent=isExpanded?'VIEW MORE':'SHOW LESS';
+
+    // Keep the page at the same scroll location after the gallery height changes.
+    if(isExpanded){
+      requestAnimationFrame(()=>{
+        window.scrollTo(0,scrollBefore);
+      });
+    }
+  },true);
 })();
 
 // Reveal sections as they enter the viewport; content remains visible if unsupported.
