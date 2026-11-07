@@ -346,9 +346,46 @@ header{animation:fade-down .7s ease-out both}
 .poster-lightbox button{position:absolute;right:18px;top:18px;width:46px;height:46px;border:1px solid #555;background:#111;color:#fff;font-size:28px;cursor:pointer}
 @media(max-width:760px){.poster-projects{grid-template-columns:1fr;gap:16px}.poster-project-info{display:none!important;padding:15px}}
 
+
+/* MOHAD.SHAJITH animated opening splash */
+#portfolioSplash{
+  position:fixed;inset:0;z-index:20000;background:#080808;
+  display:flex;align-items:center;justify-content:center;
+  opacity:1;visibility:visible;transition:opacity .65s ease,visibility .65s ease;
+}
+#portfolioSplash.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
+.splash-inner{display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px;padding:24px}
+.splash-name{margin:0;display:flex;flex-direction:column;align-items:center;
+  font-family:Arial,Helvetica,sans-serif;font-size:clamp(42px,9vw,76px);
+  line-height:.92;font-weight:900;letter-spacing:-.065em}
+.splash-name span{display:block;opacity:0;transform:translateY(24px);
+  animation:splashNameIn .8s cubic-bezier(.2,.7,.2,1) forwards}
+.splash-name .splash-top{color:#f5f3f1;animation-delay:.18s}
+.splash-name .splash-bottom{color:#ed102c;animation-delay:.48s}
+.splash-loading{color:#aaa5a5;font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+  opacity:0;animation:splashFade .7s ease .85s forwards}
+.splash-track{width:min(270px,65vw);height:3px;background:#292626;overflow:hidden}
+.splash-progress{height:100%;width:0;background:#ed102c;animation:splashLoad 1.75s ease .5s forwards}
+@keyframes splashNameIn{to{opacity:1;transform:translateY(0)}}
+@keyframes splashFade{to{opacity:1}}
+@keyframes splashLoad{to{width:100%}}
+@media(prefers-reduced-motion:reduce){
+ #portfolioSplash,.splash-name span,.splash-loading,.splash-progress{animation:none!important;transition:none!important}
+ .splash-name span,.splash-loading{opacity:1;transform:none}.splash-progress{width:100%}
+}
+
 </style>
 </head>
 <body>
+
+<div id="portfolioSplash" role="status" aria-label="Loading portfolio">
+  <div class="splash-inner">
+    <h1 class="splash-name"><span class="splash-top">MOHAD.</span><span class="splash-bottom">SHAJITH</span></h1>
+    <div class="splash-loading">LOADING PORTFOLIO</div>
+    <div class="splash-track"><div class="splash-progress"></div></div>
+  </div>
+</div>
+
 <div class="topline"></div>
 <header><nav class="wrap"><a class="brand" href="#home">MOHAMED SHAJITH <span>®</span></a><div class="navlinks"><a href="#work">Photography</a><a href="#bridal-gallery">Bridal</a><a href="#groom-gallery">Groom</a><a href="#couple-gallery">Couples</a><a href="#design">Design</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav></header>
 <main>
@@ -515,5 +552,18 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
 })();
 
 </script>
+
+// Hide the opening splash after the portfolio has had time to appear.
+(function(){
+  const splash = document.getElementById('portfolioSplash');
+  if (!splash) return;
+  const hideSplash = () => {
+    window.setTimeout(() => splash.classList.add('is-hidden'), 2200);
+    window.setTimeout(() => splash.remove(), 3000);
+  };
+  if (document.readyState === 'complete') hideSplash();
+  else window.addEventListener('load', hideSplash, { once:true });
+})();
+
 </body>
 </html>
