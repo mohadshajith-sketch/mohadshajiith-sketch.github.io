@@ -835,17 +835,39 @@ html, body{
     display: none !important;
   }
 
-  #bridal-gallery .gallery .work-card,
-  #groom-gallery .gallery .work-card,
-  #couple-gallery .gallery .work-card {
-    grid-column: auto !important;
-    min-height: 0 !important;
+  #bridal-gallery .gallery,
+  #groom-gallery .gallery,
+  #couple-gallery .gallery {
+    align-items: start !important;
+    grid-auto-rows: auto !important;
   }
 
+  #bridal-gallery .gallery .work-card,
+  #groom-gallery .gallery .work-card,
+  #couple-gallery .gallery .work-card,
   #bridal-gallery .gallery .work-card.tall,
   #groom-gallery .gallery .work-card.tall,
-  #couple-gallery .gallery .work-card.tall {
-    grid-row: span 2 !important;
+  #couple-gallery .gallery .work-card.tall,
+  #bridal-gallery .gallery .work-card.wide,
+  #groom-gallery .gallery .work-card.wide,
+  #couple-gallery .gallery .work-card.wide {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    grid-row: auto !important;
+    grid-column: auto !important;
+    overflow: visible !important;
+  }
+
+  #bridal-gallery .gallery .work-card img,
+  #groom-gallery .gallery .work-card img,
+  #couple-gallery .gallery .work-card img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
   }
 
   #design .poster-projects {
