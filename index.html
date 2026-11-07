@@ -590,6 +590,36 @@ header{animation:fade-down .7s ease-out both}
   }
 }
 
+
+/* Larger hero typography on iPad and desktop only */
+@media (min-width:761px){
+  .hero-designed .eyebrow{
+    font-size:12px!important;
+    letter-spacing:.17em!important;
+  }
+  .hero-designed .hello{
+    font-size:14px!important;
+    margin-top:30px!important;
+    margin-bottom:12px!important;
+  }
+  .hero-designed .creative-name{
+    font-size:clamp(68px,9.2vw,122px)!important;
+    line-height:.82!important;
+  }
+  .hero-designed .hero-tagline{
+    font-size:clamp(19px,2.25vw,27px)!important;
+    line-height:1.16!important;
+    margin-top:28px!important;
+  }
+  .hero-designed .intro{
+    font-size:16px!important;
+    line-height:1.8!important;
+    max-width:520px!important;
+    margin-top:26px!important;
+    margin-bottom:28px!important;
+  }
+}
+
 </style>
 </head>
 <body>
