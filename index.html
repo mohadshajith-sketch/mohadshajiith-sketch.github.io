@@ -620,6 +620,83 @@ header{animation:fade-down .7s ease-out both}
   }
 }
 
+
+/* Portrait galleries: show four images first, then expand on request */
+#bridal-gallery .gallery,
+#groom-gallery .gallery,
+#couple-gallery .gallery{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  grid-auto-rows:clamp(150px,22vw,260px)!important;
+  grid-auto-flow:row!important;
+  gap:12px!important;
+  overflow:visible!important;
+  padding:0!important;
+}
+#bridal-gallery .gallery .work-card,
+#groom-gallery .gallery .work-card,
+#couple-gallery .gallery .work-card,
+#bridal-gallery .gallery .work-card.tall,
+#groom-gallery .gallery .work-card.tall,
+#couple-gallery .gallery .work-card.tall,
+#bridal-gallery .gallery .work-card.wide,
+#groom-gallery .gallery .work-card.wide,
+#couple-gallery .gallery .work-card.wide{
+  display:block!important;
+  width:auto!important;
+  min-width:0!important;
+  height:clamp(150px,22vw,260px)!important;
+  min-height:0!important;
+  grid-row:auto!important;
+  grid-column:auto!important;
+}
+#bridal-gallery .gallery .work-card img,
+#groom-gallery .gallery .work-card img,
+#couple-gallery .gallery .work-card img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+.gallery-more-button{
+  display:block;
+  margin:22px auto 0;
+  min-width:150px;
+  padding:13px 24px;
+  border:1px solid #ed102c;
+  background:transparent;
+  color:#fff;
+  font:inherit;
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:background .2s ease,color .2s ease;
+}
+.gallery-more-button:hover{
+  background:#ed102c;
+  color:#fff;
+}
+@media(max-width:760px){
+  #bridal-gallery .gallery,
+  #groom-gallery .gallery,
+  #couple-gallery .gallery{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-auto-rows:150px!important;
+    gap:9px!important;
+  }
+  #bridal-gallery .gallery .work-card,
+  #groom-gallery .gallery .work-card,
+  #couple-gallery .gallery .work-card,
+  #bridal-gallery .gallery .work-card.tall,
+  #groom-gallery .gallery .work-card.tall,
+  #couple-gallery .gallery .work-card.tall,
+  #bridal-gallery .gallery .work-card.wide,
+  #groom-gallery .gallery .work-card.wide,
+  #couple-gallery .gallery .work-card.wide{
+    height:150px!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -659,7 +736,7 @@ header{animation:fade-down .7s ease-out both}
 <article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 17"><img src="bridal-17.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">BRIDE / 17</span><h3>Bridal portrait 17</h3></div></article>
 <article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 18"><img src="bridal-18.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">BRIDE / 18</span><h3>Bridal portrait 18</h3></div></article>
 <article class="work-card tall reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 19"><img src="bridal-19.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">BRIDE / 19</span><h3>Bridal portrait 19</h3></div></article>
-<article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 20"><img src="bridal-20.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">BRIDE / 20</span><h3>Bridal portrait 20</h3></div></article></div></div></section>
+<article class="work-card reveal" data-category="bride" tabindex="0" role="button" aria-label="View Bridal portrait 20"><img src="bridal-20.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">BRIDE / 20</span><h3>Bridal portrait 20</h3></div></article></div><button class="gallery-more-button bridal-more" type="button" aria-expanded="false">VIEW MORE</button></div></section>
 <section id="groom-gallery" class="reveal-section"><div class="wrap"><div class="section-head"><div><h2>Groom Portraits</h2></div><p class="section-note">Character, confidence and considered portraits of the groom.</p></div><div class="gallery groom-gallery"><article class="work-card tall reveal" data-category="groom" tabindex="0" role="button" aria-label="View Groom portrait 1"><img src="groom-01.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">GROOM / 01</span><h3>Groom portrait 1</h3></div></article>
 <article class="work-card reveal" data-category="groom" tabindex="0" role="button" aria-label="View Groom portrait 2"><img src="groom-02.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">GROOM / 02</span><h3>Groom portrait 2</h3></div></article>
 <article class="work-card reveal" data-category="groom" tabindex="0" role="button" aria-label="View Groom portrait 3"><img src="groom-03.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">GROOM / 03</span><h3>Groom portrait 3</h3></div></article>
@@ -678,7 +755,7 @@ header{animation:fade-down .7s ease-out both}
 <article class="work-card tall reveal" data-category="groom" tabindex="0" role="button" aria-label="View Groom portrait 16"><img src="groom-16.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">GROOM / 16</span><h3>Groom portrait 16</h3></div></article>
 <article class="work-card reveal" data-category="groom" tabindex="0" role="button" aria-label="View Groom portrait 17"><img src="groom-17.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">GROOM / 17</span><h3>Groom portrait 17</h3></div></article>
 <article class="work-card reveal" data-category="groom" tabindex="0" role="button" aria-label="View Groom portrait 18"><img src="groom-18.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">GROOM / 18</span><h3>Groom portrait 18</h3></div></article>
-<article class="work-card tall reveal" data-category="groom" tabindex="0" role="button" aria-label="View Groom portrait 19"><img src="groom-19.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">GROOM / 19</span><h3>Groom portrait 19</h3></div></article></div></div></section>
+<article class="work-card tall reveal" data-category="groom" tabindex="0" role="button" aria-label="View Groom portrait 19"><img src="groom-19.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">GROOM / 19</span><h3>Groom portrait 19</h3></div></article></div><button class="gallery-more-button groom-more" type="button" aria-expanded="false">VIEW MORE</button></div></section>
 <section id="couple-gallery" class="reveal-section"><div class="wrap"><div class="section-head"><div><h2>Couple Portraits</h2></div><p class="section-note">Honest connection, quiet moments and the celebration of two people.</p></div><div class="gallery couple-gallery"><article class="work-card tall reveal" data-category="couple" tabindex="0" role="button" aria-label="View Couple portrait 1"><img src="couple-01.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">COUPLE / 01</span><h3>Couple portrait 1</h3></div></article>
 <article class="work-card reveal" data-category="couple" tabindex="0" role="button" aria-label="View Couple portrait 2"><img src="couple-02.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">COUPLE / 02</span><h3>Couple portrait 2</h3></div></article>
 <article class="work-card reveal" data-category="couple" tabindex="0" role="button" aria-label="View Couple portrait 3"><img src="couple-03.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">COUPLE / 03</span><h3>Couple portrait 3</h3></div></article>
@@ -698,7 +775,7 @@ header{animation:fade-down .7s ease-out both}
 <article class="work-card reveal" data-category="couple" tabindex="0" role="button" aria-label="View Couple portrait 17"><img src="couple-17.jpeg" alt="" loading="lazy"><div class="work-info"><span class="number">COUPLE / 17</span><h3>Couple portrait 17</h3></div></article>
 
 
-</div></div></section>
+</div><button class="gallery-more-button couple-more" type="button" aria-expanded="false">VIEW MORE</button></div></section>
 <div class="lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Expanded photograph"><button class="lightbox-close" id="galleryClose" type="button" aria-label="Close image">×</button><img id="galleryLargeImage" src="" alt=""></div>
 
 <section id="design" class="reveal-section">
@@ -749,7 +826,7 @@ document.getElementById('year').textContent=new Date().getFullYear();
 
 // Gallery filters and accessible full-screen viewer
 (function(){
- const cards=document.querySelectorAll('#work .gallery .work-card[data-category]');
+ const cards=document.querySelectorAll('#work .gallery .work-card[data-category],#bridal-gallery .gallery .work-card[data-category],#groom-gallery .gallery .work-card[data-category],#couple-gallery .gallery .work-card[data-category]');
  const filters=document.querySelectorAll('#work .gallery-filters .gallery-filter');
  const box=document.getElementById('galleryLightbox');
  const large=document.getElementById('galleryLargeImage');
@@ -766,6 +843,27 @@ document.getElementById('year').textContent=new Date().getFullYear();
  function shut(){box.classList.remove('open');large.src='';document.body.style.overflow='';}
  cards.forEach(card=>{card.addEventListener('click',()=>open(card));card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(card);}});});
  close.addEventListener('click',shut);box.addEventListener('click',e=>{if(e.target===box)shut();});document.addEventListener('keydown',e=>{if(e.key==='Escape')shut();});
+})();
+
+
+// Show only the first four images in each portrait gallery; expand on demand.
+(function(){
+  ['bridal-gallery','groom-gallery','couple-gallery'].forEach(id=>{
+    const section=document.getElementById(id);
+    if(!section) return;
+    const cards=Array.from(section.querySelectorAll('.gallery .work-card'));
+    const button=section.querySelector('.gallery-more-button');
+    if(!button) return;
+    cards.forEach((card,index)=>{card.hidden=index>=4;});
+    if(cards.length<=4){button.hidden=true;return;}
+    button.addEventListener('click',()=>{
+      const expanded=button.getAttribute('aria-expanded')==='true';
+      cards.forEach((card,index)=>{card.hidden=!expanded&&index>=4;});
+      button.setAttribute('aria-expanded',String(!expanded));
+      button.textContent=expanded?'VIEW MORE':'SHOW LESS';
+      if(expanded) section.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
 })();
 
 // Reveal sections as they enter the viewport; content remains visible if unsupported.
