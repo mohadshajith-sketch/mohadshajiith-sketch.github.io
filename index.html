@@ -420,6 +420,99 @@ header{animation:fade-down .7s ease-out both}
   }
 }
 
+
+/* Compact portrait galleries: Bridal, Groom and Couples */
+#bridal-gallery,
+#groom-gallery,
+#couple-gallery{
+  padding:34px 0!important;
+}
+#bridal-gallery .section-head,
+#groom-gallery .section-head,
+#couple-gallery .section-head{
+  margin-bottom:16px!important;
+  gap:12px!important;
+}
+#bridal-gallery .section-head h2,
+#groom-gallery .section-head h2,
+#couple-gallery .section-head h2{
+  font-size:clamp(23px,3.2vw,32px)!important;
+}
+#bridal-gallery .section-note,
+#groom-gallery .section-note,
+#couple-gallery .section-note{
+  font-size:12px!important;
+  line-height:1.5!important;
+}
+#bridal-gallery .gallery,
+#groom-gallery .gallery,
+#couple-gallery .gallery{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  grid-auto-rows:155px!important;
+  grid-auto-flow:row!important;
+  gap:10px!important;
+  overflow:visible!important;
+  padding:0!important;
+}
+#bridal-gallery .gallery .work-card,
+#groom-gallery .gallery .work-card,
+#couple-gallery .gallery .work-card,
+#bridal-gallery .gallery .work-card.tall,
+#groom-gallery .gallery .work-card.tall,
+#couple-gallery .gallery .work-card.tall,
+#bridal-gallery .gallery .work-card.wide,
+#groom-gallery .gallery .work-card.wide,
+#couple-gallery .gallery .work-card.wide{
+  display:block!important;
+  width:auto!important;
+  min-width:0!important;
+  height:155px!important;
+  min-height:0!important;
+  grid-row:auto!important;
+  grid-column:auto!important;
+  scroll-snap-align:unset!important;
+}
+#bridal-gallery .gallery .work-card img,
+#groom-gallery .gallery .work-card img,
+#couple-gallery .gallery .work-card img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+@media(max-width:760px){
+  #bridal-gallery,
+  #groom-gallery,
+  #couple-gallery{padding:28px 0!important}
+  #bridal-gallery .section-head,
+  #groom-gallery .section-head,
+  #couple-gallery .section-head{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    gap:8px!important;
+    margin-bottom:14px!important;
+  }
+  #bridal-gallery .gallery,
+  #groom-gallery .gallery,
+  #couple-gallery .gallery{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    grid-auto-rows:112px!important;
+    gap:7px!important;
+  }
+  #bridal-gallery .gallery .work-card,
+  #groom-gallery .gallery .work-card,
+  #couple-gallery .gallery .work-card,
+  #bridal-gallery .gallery .work-card.tall,
+  #groom-gallery .gallery .work-card.tall,
+  #couple-gallery .gallery .work-card.tall,
+  #bridal-gallery .gallery .work-card.wide,
+  #groom-gallery .gallery .work-card.wide,
+  #couple-gallery .gallery .work-card.wide{
+    height:112px!important;
+  }
+}
+
 </style>
 </head>
 <body>
