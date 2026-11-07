@@ -798,10 +798,10 @@ html, body{
 
 
 
-/* Desktop-only width correction.
+/* Desktop-only width correction for the entire page.
    Keep iPad (761–1200px) and mobile (<=760px) exactly as they are. */
 @media (min-width: 1201px) {
-  .wrap#home {
+  .wrap {
     width: min(1600px, calc(100% - 64px)) !important;
     max-width: none !important;
   }
