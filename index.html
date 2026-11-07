@@ -807,6 +807,63 @@ html, body{
   }
 }
 
+
+
+/* Desktop gallery refinement: smaller portrait tiles, all portraits visible,
+   and exactly nine graphic-design posters arranged in two rows.
+   Tablet and mobile layouts are intentionally untouched. */
+@media (min-width: 1201px) {
+  #bridal-gallery .gallery,
+  #groom-gallery .gallery,
+  #couple-gallery .gallery {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    grid-auto-rows: 190px !important;
+    grid-auto-flow: row !important;
+    gap: 14px !important;
+  }
+
+  /* The desktop view shows every portrait; View More is retained for smaller screens. */
+  #bridal-gallery .gallery .work-card[hidden],
+  #groom-gallery .gallery .work-card[hidden],
+  #couple-gallery .gallery .work-card[hidden] {
+    display: block !important;
+  }
+
+  #bridal-gallery .gallery-more-button,
+  #groom-gallery .gallery-more-button,
+  #couple-gallery .gallery-more-button {
+    display: none !important;
+  }
+
+  #bridal-gallery .gallery .work-card,
+  #groom-gallery .gallery .work-card,
+  #couple-gallery .gallery .work-card {
+    grid-column: auto !important;
+    min-height: 0 !important;
+  }
+
+  #bridal-gallery .gallery .work-card.tall,
+  #groom-gallery .gallery .work-card.tall,
+  #couple-gallery .gallery .work-card.tall {
+    grid-row: span 2 !important;
+  }
+
+  #design .poster-projects {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  #design .poster-project {
+    min-width: 0;
+  }
+
+  #design .poster-project-image {
+    width: 100% !important;
+    aspect-ratio: 4 / 5 !important;
+    object-fit: cover !important;
+  }
+}
+
 </style>
 </head>
 <body>
