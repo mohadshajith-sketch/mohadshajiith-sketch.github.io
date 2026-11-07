@@ -697,6 +697,55 @@ header{animation:fade-down .7s ease-out both}
   }
 }
 
+
+/* Refined portrait gallery: vertical editorial cards instead of square tiles */
+#bridal-gallery .gallery,
+#groom-gallery .gallery,
+#couple-gallery .gallery{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  grid-auto-rows:auto!important;
+  align-items:start!important;
+  gap:14px!important;
+}
+#bridal-gallery .gallery .work-card,
+#groom-gallery .gallery .work-card,
+#couple-gallery .gallery .work-card,
+#bridal-gallery .gallery .work-card.tall,
+#groom-gallery .gallery .work-card.tall,
+#couple-gallery .gallery .work-card.tall,
+#bridal-gallery .gallery .work-card.wide,
+#groom-gallery .gallery .work-card.wide,
+#couple-gallery .gallery .work-card.wide{
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:4/5!important;
+  overflow:hidden!important;
+  border:1px solid rgba(255,255,255,.12)!important;
+  background:#111!important;
+}
+#bridal-gallery .gallery .work-card img,
+#groom-gallery .gallery .work-card img,
+#couple-gallery .gallery .work-card img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+#bridal-gallery .gallery .work-card[hidden],
+#groom-gallery .gallery .work-card[hidden],
+#couple-gallery .gallery .work-card[hidden]{
+  display:none!important;
+}
+@media(max-width:760px){
+  #bridal-gallery .gallery,
+  #groom-gallery .gallery,
+  #couple-gallery .gallery{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+  }
+}
+
 </style>
 </head>
 <body>
