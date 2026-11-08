@@ -988,6 +988,54 @@ html, body{
   }
 }
 
+
+/* Desktop + iPad hero portrait correction only */
+@media (min-width: 761px) {
+  .hero-designed {
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  .hero-designed > .profile-hero {
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: -8px !important;
+    width: 48% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: flex-end !important;
+    overflow: hidden !important;
+    transform: none !important;
+    isolation: auto !important;
+  }
+  .hero-designed > .profile-hero::before,
+  .hero-designed > .profile-hero::after {
+    content: none !important;
+    display: none !important;
+    box-shadow: none !important;
+  }
+  .hero-designed > .profile-hero img {
+    display: block !important;
+    width: auto !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    min-height: 0 !important;
+    object-fit: contain !important;
+    object-position: right bottom !important;
+    margin: 0 !important;
+    transform: none !important;
+    filter: grayscale(100%) !important;
+    mix-blend-mode: normal !important;
+    background: transparent !important;
+  }
+}
+
 </style>
 </head>
 <body>
