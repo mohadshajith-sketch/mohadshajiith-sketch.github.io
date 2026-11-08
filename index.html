@@ -978,6 +978,16 @@ html, body{
   }
 }
 
+
+/* Raise the complete hero content slightly on iPad and desktop only.
+   Mobile hero positioning remains unchanged. */
+@media (min-width:761px){
+  .hero-designed > .hero-copy,
+  .hero-designed > .profile-hero{
+    transform:translateY(-24px)!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1239,12 +1249,3 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
 </body>
 </html>
 
-
-/* Raise the complete hero content slightly on iPad and desktop only.
-   Mobile hero positioning remains unchanged. */
-@media (min-width:761px){
-  .hero-designed > .hero-copy,
-  .hero-designed > .profile-hero{
-    transform:translateY(-24px)!important;
-  }
-}
