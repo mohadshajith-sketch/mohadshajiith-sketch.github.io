@@ -4,6 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080808">
+<script>
+/* On browser refresh, always reopen the portfolio at the home section. */
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.addEventListener('pageshow', function () {
+  const navigation = performance.getEntriesByType('navigation')[0];
+  if (navigation && navigation.type === 'reload') {
+    if (location.hash) {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+    window.scrollTo(0, 0);
+    requestAnimationFrame(function () {
+      window.scrollTo(0, 0);
+    });
+  }
+});
+</script>
 <meta name="description" content="Photography and graphic design portfolio">
 <title>MOHAMED SHAJITH — Photography & Graphic Design</title>
 <style>
