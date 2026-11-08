@@ -1101,6 +1101,69 @@ html, body{
   }
 }
 
+
+
+/* Final desktop + iPad hero portrait alignment.
+   Mobile (760px and below) is intentionally untouched. */
+@media (min-width: 761px) {
+  .hero-designed {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr) !important;
+    align-items: stretch !important;
+    min-height: 720px !important;
+    padding-bottom: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .hero-designed > .hero-copy {
+    align-self: center !important;
+    transform: translateY(-24px) !important;
+  }
+
+  .hero-designed > .profile-hero {
+    position: relative !important;
+    inset: auto !important;
+    align-self: stretch !important;
+    display: flex !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    background: transparent !important;
+    border: 0 !important;
+    transform: none !important;
+    isolation: auto !important;
+  }
+
+  .hero-designed > .profile-hero::before,
+  .hero-designed > .profile-hero::after {
+    content: none !important;
+    display: none !important;
+    box-shadow: none !important;
+  }
+
+  .hero-designed > .profile-hero img {
+    display: block !important;
+    width: auto !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    min-height: 0 !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+    margin: 0 !important;
+    transform: none !important;
+    filter: grayscale(100%) !important;
+    mix-blend-mode: normal !important;
+    background: transparent !important;
+  }
+}
+
 </style>
 </head>
 <body>
