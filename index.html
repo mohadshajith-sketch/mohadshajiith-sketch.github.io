@@ -1036,6 +1036,71 @@ html, body{
   }
 }
 
+
+/* Restore the hero portrait in the desktop/iPad grid; mobile rules are untouched */
+@media (min-width: 761px) {
+  .hero-designed {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr) !important;
+    align-items: end !important;
+    gap: 28px !important;
+    position: relative !important;
+    min-height: 720px !important;
+    height: auto !important;
+    overflow: hidden !important;
+    padding-bottom: 0 !important;
+  }
+  .hero-designed > .hero-copy {
+    position: relative !important;
+    z-index: 2 !important;
+    transform: translateY(-24px) !important;
+  }
+  .hero-designed > .profile-hero {
+    position: relative !important;
+    inset: auto !important;
+    z-index: 1 !important;
+    display: flex !important;
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0 !important;
+    min-height: 520px !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-self: end !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    transform: none !important;
+    background: transparent !important;
+    border: 0 !important;
+    isolation: auto !important;
+  }
+  .hero-designed > .profile-hero::before,
+  .hero-designed > .profile-hero::after {
+    content: none !important;
+    display: none !important;
+    box-shadow: none !important;
+  }
+  .hero-designed > .profile-hero img {
+    display: block !important;
+    position: relative !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 680px !important;
+    min-height: 0 !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+    margin: 0 !important;
+    transform: none !important;
+    filter: grayscale(100%) !important;
+    mix-blend-mode: normal !important;
+    background: transparent !important;
+  }
+}
+
 </style>
 </head>
 <body>
