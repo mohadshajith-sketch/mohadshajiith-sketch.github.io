@@ -978,6 +978,15 @@ html, body{
   }
 }
 
+
+/* Requested adjustment: lift only the hero text/content on iPad and desktop.
+   Keep the portrait, mobile layout, and all other sections unchanged. */
+@media (min-width: 761px) {
+  .hero-designed > .hero-copy {
+    transform: translateY(-24px) !important;
+  }
+}
+
 </style>
 </head>
 <body>
